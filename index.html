@@ -12,14 +12,14 @@
 <body class="m-12">
     <header class="mb-12">
         <div class="bg-[#1090D81A] w-full h-32 rounded-lg px-10 py-5">
-            <h1 class="text-[#111111CC] text-5xl font-bold mb-2">Interactive</h1>
-            <h4 class="text-[#11111199] text-3xl font-medium">Geometry Genius</h4>
+            <h1 class="text-[#111111CC] text-3xl lg:text-5xl font-bold mb-2">Interactive</h1>
+            <h4 class="text-[#11111199] text-xl lg:text-3xl font-medium">Geometry Genius</h4>
         </div>
     </header>
     <main>
-        <div class="flex gap-6">
+        <div class="flex gap-6 flex-col lg:flex-row">
             <!-- left side -->
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- triangle -->
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
@@ -66,7 +66,7 @@
                             <div>
                                 <p class="text-2xl">Area: <span id="rectangle-area"></span> <span>cm<sup>2</sup> </span>
                                 </p>
-                            </div> 
+                            </div>
                             <button onclick="calculateRectangleArea()"
                                 class="btn btn-primary w-full bg-[#1090D8] border-none text-white">Calculate</button>
                         </div>
@@ -82,18 +82,18 @@
                         <p>Area (A) = b X h</p>
                         <div class="card-actions w-full">
                             <div class="space-x-3 ml-5 mb-8">
-                                <input id="para-base" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
-                                    placeholder="b ">
+                                <input id="para-base" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0"
+                                    type="text" placeholder="b ">
                                 <span>cm</span>
-                                <input id="para-height" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
-                                    placeholder="h">
+                                <input id="para-height" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0"
+                                    type="text" placeholder="h">
                                 <span>cm</span>
                             </div>
                             <div>
                                 <p class="text-2xl">Area: <span id="para-area"></span><span>cm<sup>2</sup></span></p>
                             </div>
-                            <button
-                                class="btn btn-primary w-full bg-[#1090D8] border-none text-white" onclick="calculateParallelogramArea()">Calculate</button>
+                            <button class="btn btn-primary w-full bg-[#1090D8] border-none text-white"
+                                onclick="calculateParallelogramArea()">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -107,14 +107,17 @@
                         <p>Area (A) = 0.5 X d<sub>1</sub> X d<sub>2</sub></p>
                         <div class="card-actions w-full">
                             <div class="space-x-3 ml-5 mb-8">
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                <input id="rhombus-d1" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
                                     placeholder="d1">
                                 <span>cm</span>
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                <input id="rhombus-d2" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
                                     placeholder="d2">
                                 <span>cm</span>
                             </div>
-                            <button
+                            <div>
+                                <p class="text-2xl">Area: <span id="rhombus-area"></span><span>cm<sup>2</sup></span></p>
+                            </div>
+                            <button onclick="calculateRhombusArea()"
                                 class="btn btn-primary w-full bg-[#1090D8] border-none text-white">Calculate</button>
                         </div>
                     </div>
@@ -125,18 +128,21 @@
                         <img src="images/pentagon.png" alt="triangle">
                     </figure>
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">Triangle</h2>
+                        <h2 class="card-title">Pentagon</h2>
                         <p>Area (A) = 0.5 X p X b</p>
                         <div class="card-actions w-full">
                             <div class="space-x-3 ml-5 mb-8">
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                <input id="pentagon-peri" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                    placeholder="p">
+                                <span>cm</span>
+                                <input id="pentagon-apo" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
                                     placeholder="b">
                                 <span>cm</span>
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
-                                    placeholder="h">
-                                <span>cm</span>
                             </div>
-                            <button
+                            <div>
+                                <p class="text-2xl">Area: <span id="pentagon-area"></span><span>cm<sup>2</sup></span></p>
+                            </div>
+                            <button onclick="calculatePentagonArea()"
                                 class="btn btn-primary w-full bg-[#1090D8] border-none text-white">Calculate</button>
                         </div>
                     </div>
@@ -147,18 +153,21 @@
                         <img src="images/ellipse.png" alt="triangle">
                     </figure>
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">Triangle</h2>
+                        <h2 class="card-title">Ellipse</h2>
                         <p>Area (A) = πab</p>
                         <div class="card-actions w-full">
                             <div class="space-x-3 ml-5 mb-8">
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                <input id="major-axis" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
                                     placeholder="a">
                                 <span>cm</span>
-                                <input class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
+                                <input id="minor-axis" class="bg-[#F1F1F1] px-3 py-2 w-24 rounded-md outline-0" type="text"
                                     placeholder="b">
                                 <span>cm</span>
                             </div>
-                            <button
+                            <div>
+                                <p class="text-2xl">Area: <span id="ellipse-area"></span><span>cm<sup>2</sup></span></p>
+                            </div>
+                            <button onclick="calculateEllipseArea()"
                                 class="btn btn-primary w-full bg-[#1090D8] border-none text-white">Calculate</button>
                         </div>
                     </div>
@@ -174,6 +183,7 @@
     <script src="js/triangle.js"></script>
     <script src="js/rectangle.js"></script>
     <script src="js/parallelogram.js"></script>
+    <script src="js/reusable.js"></script>
 </body>
 
 </html>
